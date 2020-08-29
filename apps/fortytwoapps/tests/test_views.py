@@ -13,7 +13,7 @@ class ContactViewTestCase(TestCase):
     def test_contact_view_render(self):
             """
             basic test for contact view to return status 200 as response
-            and uses correct template
+            and uses correct template test
             """
             self.assertEqual(self.response.status_code, 200)
             self.assertTemplateUsed(self.response, 'fortytwoapps/contact.html')
