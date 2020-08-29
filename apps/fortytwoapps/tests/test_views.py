@@ -1,6 +1,5 @@
-from django.test import TestCase, RequestFactory
+from django.test import RequestFactory, TestCase
 from django.urls import reverse
-# Create your tests here.
 
 
 class ContactViewTestCase(TestCase):
