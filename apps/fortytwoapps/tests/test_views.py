@@ -1,11 +1,10 @@
 from django.test import TestCase, RequestFactory
-from apps.fortytwoapps.views import Contact
 from django.urls import reverse
 # Create your tests here.
 
+
 class ContactViewTestCase(TestCase):
-    
-    
+
     def setUp(self):
         self.factory = RequestFactory()
         self.url = reverse('contact')
