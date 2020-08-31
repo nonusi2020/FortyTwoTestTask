@@ -1,49 +1,35 @@
-<!DOCTYPE html>
-<style>
-* {
-  box-sizing: border-box;
-}
+{% extends "base.html" %}
 
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 30px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
+{% load static %}
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-</style>
-
+{% block content %}
 <div class="container">
     <div class="row">
         <div class="col-md-6"><h2>42 Coffee Cups Test Assignment</h2></div>
     </div>
 
 
-
+{% if contact %}
 <div class="main row">
 
 	<div class="column">
-		<div class="my" ><span id="Name"><strong>Name </strong></span>Nonu</div>
-
-		<div class="my"><span id="LastName"><strong>LastName </strong></span>Singh</div>
-		<div class="my"><span id="DateOfBirth"><strong>DateofBirth </strong></span>01-jan-1983</div>
-		<div class="my" ><span id="Bio"><strong>Bio: </strong></span>Software Developer</div>
+		<div class="my" ><span id="Name"><strong>Name: </strong></span>{{ contact.name }}</div>
+		<div class="my"><span id="LastName"><strong>LastName: </strong></span>{{contact.lastname}}</div>
+		<div class="my"><span id="DateOfBirth"><strong>DateofBirth: </strong></span>{{contact.dateofbirth}}</div>
+		<div class="my" ><span id="Bio"><strong>Bio: </strong></span>{{ contact.bio|linebreaks }}</div>
 	</div>
 
 	<div class="column">
 		<div class="my"><b>Contacts</b></div>
-		<div class="my"><span id="Email"><strong>Email: </strong></span>nonu.si2020@gmail.com</div>
-		<div class="my"><span id="Jabber"><strong>Jabber: </strong></span>nonusi@42cc.co</div>
-		<div class="my"><span id="Skype"><strong>Skype: </strong></span>nonu.si2020@gmail.com</div>
-		<div class="my"><span id="OtherContacts"><strong>OtherContacts: </strong></span>None</div>
+		<div class="my"><span id="Email"><strong>Email: </strong></span>{{contact.email}}</div>
+		<div class="my"><span id="Jabber"><strong>Jabber: </strong></span>{{contact.jabber}}</div>
+		<div class="my"><span id="Skype"><strong>Skype: </strong></span>{{contact.skype}}</div>
+		<div class="my"><span id="OtherContacts"><strong>OtherContacts: </strong></span>{{contact.othercontacts|linebreaks}}</div>
 
 	</div>
 </div>
 </div>
+{%else %}
+<p>Contact details not in db.</p>
+{% endif %}
+{% endblock %}
