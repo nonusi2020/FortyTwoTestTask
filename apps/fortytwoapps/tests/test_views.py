@@ -6,7 +6,7 @@ from apps.fortytwoapps.models import Contact
 class ContactViewTestCase(TestCase):
 
     def setUp(self):
-
+        Contact.objects.all().delete()
         Contact.objects.create(name='nonu',
                                lastname='si',
                                dateofbirth='1983-01-01',
