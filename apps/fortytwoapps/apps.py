@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class FortytwotasksConfig(AppConfig):
-    name = 'apps.fortytwotasks'
+    name = 'apps.fortytwoapps'

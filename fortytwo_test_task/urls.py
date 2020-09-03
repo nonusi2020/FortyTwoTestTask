@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from apps.fortytwoapps.views import ContactView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('contact/', ContactView.as_view(), name='contact'),
 ]

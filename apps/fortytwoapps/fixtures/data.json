@@ -1,0 +1,36 @@
+[
+  {
+    "model": "fortytwoapps.contact",
+    "pk": 1,
+    "fields": {
+      "name": "nonu",
+      "lastname": "Si",
+      "dateofbirth":"1983-01-01",
+      "bio":"",
+      "email":"nonusi@gmail.com",
+      "jabber":"nonusi@42cc.co",
+      "skype":"nonusi@gmail.com",
+      "othercontacts":""
+    }
+  },
+
+    {
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2020-08-31T14:46:17.823Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$12000$iRBiHyjya8O0$YJgzo4X89ddF7NGHCIlZhzPLruqvlcsvMh311ypGWOk=",
+      "email": "nonu.si2020@gmail.com",
+      "date_joined": "2020-08-31T13:44:05.890Z"
+    }
+
+  }
+  ]
