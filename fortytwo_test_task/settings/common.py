@@ -26,8 +26,7 @@ SECRET_KEY = 'nwvy4v3acf*oxu$k(_bkue3m1x6nzaw$a=z^uk1e82)ou#d&8l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['http://fortytwotesttask-572.nonusi2020.at.getbarista.com','127.0.0.1','testserver']
 
 # Application definition
 
@@ -128,5 +127,3 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'assets'),
 )
-
-FIXTURE_DIRS= [os.path.join(BASE_DIR,"apps/fortytwoapps/fixtures/"),]

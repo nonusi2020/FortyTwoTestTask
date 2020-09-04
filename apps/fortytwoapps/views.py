@@ -1,11 +1,6 @@
-from django.views.generic import TemplateView
+from django.views.generic import DetailView
 from apps.fortytwoapps.models import Contact
 
 
-class ContactView(TemplateView):
-    template_name = "fortytwoapps/contact.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(ContactView, self).get_context_data(**kwargs)
-        context['contact'] = Contact.objects.first()
-        return context
+class ContactView(DetailView):
+    model = Contact
