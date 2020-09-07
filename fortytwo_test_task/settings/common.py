@@ -26,7 +26,7 @@ SECRET_KEY = 'nwvy4v3acf*oxu$k(_bkue3m1x6nzaw$a=z^uk1e82)ou#d&8l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fortytwotesttask-572.nonusi2020.at.getbarista.com', '127.0.0.1', 'testserver']
+ALLOWED_HOSTS = ['fortytwotesttask-454.nonusi2020.at.getbarista.com', '127.0.0.1', 'testserver']
 
 # Application definition
 
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'fortytwo_test_task.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,4 +128,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
 
-FIXTURE_DIRS= [os.path.join(BASE_DIR,"apps/fortytwoapps/fixtures/")]
+FIXTURE_DIRS = [os.path.join(BASE_DIR, "apps/fortytwoapps/fixtures/")]
