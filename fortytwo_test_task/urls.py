@@ -20,5 +20,4 @@ from apps.fortytwoapps.views import ContactView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ContactView.as_view(), name='contact_default'),
-    path('contact/<pk>', ContactView.as_view(), name='contact'),
 ]

@@ -7,9 +7,4 @@ class ContactView(DetailView):
     # define custom method to return contact view
 
     def get_object(self, **kwargs):
-        if not self.kwargs:
-            obj = Contact.objects.get(id=1)
-        else:
-            obj = Contact.objects.get(id=self.kwargs['pk'])
-
-        return obj
+        return Contact.objects.get(id=self.kwargs.get('pk', 1))

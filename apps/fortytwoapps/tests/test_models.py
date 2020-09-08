@@ -7,14 +7,15 @@ class ContactModelTestCase(TestCase):
     def setUp(self):
         Contact.objects.all().delete()
         self.contact = Contact.objects.create(
-                                              name='test',
-                                              lastname='user',
-                                              dateofbirth='1983-01-01',
-                                              bio='Hello This is my bio',
-                                              email='nonu.si2020@gmail.com',
-                                              jabber='nonusi@42cc.co',
-                                              skype='nonu.si2020@gmail.com',
-                                              othercontacts='Other Contacts')
+            name='test',
+            lastname='user',
+            dateofbirth='1983-01-01',
+            bio='Hello This is my bio',
+            email='nonu.si2020@gmail.com',
+            jabber='nonusi@42cc.co',
+            skype='nonu.si2020@gmail.com',
+            othercontacts='Other Contacts'
+        )
 
     def test_contact_basic(self):
         """
