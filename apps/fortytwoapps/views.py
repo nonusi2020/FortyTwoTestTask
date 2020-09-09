@@ -1,11 +1,10 @@
-from django.views.generic import TemplateView
+from django.views.generic import DetailView
 from apps.fortytwoapps.models import Contact
 
 
-class ContactView(TemplateView):
-    template_name = "fortytwoapps/contact.html"
+class ContactView(DetailView):
+    model = Contact
+    # define custom method to return contact view
 
-    def get_context_data(self, **kwargs):
-        context = super(ContactView, self).get_context_data(**kwargs)
-        context['contact'] = Contact.objects.first()
-        return context
+    def get_object(self, **kwargs):
+        return Contact.objects.get(id=self.kwargs.get('pk', 1))

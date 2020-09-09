@@ -19,3 +19,6 @@ static
 .idea/
 fortytwo_test_task/local_settings.py
 .coverage
+.vscode
+*.dmp
+local.py
