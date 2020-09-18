@@ -1,5 +1,5 @@
 from django.test import TestCase
-from apps.fortytwoapps.models import Contact
+from apps.fortytwoapps.models import Contact, Request
 
 
 class ContactModelTestCase(TestCase):
@@ -24,9 +24,31 @@ class ContactModelTestCase(TestCase):
         contact = Contact.objects.first()
         self.assertEqual(contact.name, 'test')
         self.assertEqual(contact.lastname, 'user')
-        self.assertEqual(contact.dateofbirth.strftime('%Y-%m-%d'), '1983-01-01')
+        self.assertEqual(contact.dateofbirth.strftime(
+            '%Y-%m-%d'), '1983-01-01')
         self.assertEqual(contact.bio, 'Hello This is my bio')
         self.assertEqual(contact.email, 'nonu.si2020@gmail.com')
         self.assertEqual(contact.jabber, 'nonusi@42cc.co')
         self.assertEqual(contact.skype, 'nonu.si2020@gmail.com')
         self.assertEqual(contact.othercontacts, 'Other Contacts')
+
+
+class RequestsModelTestCase(TestCase):
+    """
+    Test for RequestModel
+    """
+
+    def setUp(self):
+        Request.objects.create(
+            url='contact/',
+            time=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            viewed=False
+        )
+
+    def test_request_basic(self):
+        """
+        Test for Request model
+        """
+        self.request = Request.objects.first()
+        self.assertEqual(self.request.url, 'contact/')
+        self.assertEqual(self.request.viewed, False)

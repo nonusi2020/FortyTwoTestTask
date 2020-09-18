@@ -1,6 +1,6 @@
 from django.test import TestCase, RequestFactory
 from apps.fortytwoapps.models import Contact
-from apps.fortytwoapps.views import ContactView
+from apps.fortytwoapps.views import ContactView, Request
 from django.urls import reverse
 
 
@@ -37,7 +37,8 @@ class ContactViewTestCase(TestCase):
         test to check contact view returns contact as context.
         """
         response = self.client.get(self.url)
-        fields = ('name', 'lastname', 'bio', 'email', 'jabber', 'skype', 'othercontacts')
+        fields = ('name', 'lastname', 'bio', 'email',
+                  'jabber', 'skype', 'othercontacts')
         for field in fields:
             self.assertContains(response, getattr(self.contact, field))
 
@@ -70,3 +71,20 @@ class ContactViewTestCase(TestCase):
         request = factory.get(self.url)
         response = ContactView.as_view()(request, pk=1)
         self.assertEqual(response.status_code, 200)
+
+
+class RequestViewTestCase(TestCase):
+
+    def setUp(self):
+        Request.objects.all().delete()
+        self.url = reverse('request')
+
+    def test_request_view_render(self):
+        """
+        basic test for request view to return status 200 as response
+        and uses correct template
+        """
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'fortytwoapps/requests.html')
+        self.assertEqual(request.view_name, 'requests')
