@@ -1,5 +1,5 @@
-from django.views.generic import DetailView, TemplateView
-from apps.fortytwoapps.models import Contact
+from django.views.generic import DetailView, ListView
+from apps.fortytwoapps.models import Contact, Request
 
 
 class ContactView(DetailView):
@@ -10,5 +10,7 @@ class ContactView(DetailView):
         return Contact.objects.get(id=self.kwargs.get('pk', 1))
 
 
-class RequestView(TemplateView):
+class RequestView(ListView):
+    model = Request
     template_name = "fortytwoapps/requests.html"
+    queryset = Request.objects.values()[:10]

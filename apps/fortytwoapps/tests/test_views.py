@@ -87,3 +87,13 @@ class RequestViewTestCase(TestCase):
         response = self.client.get(request_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'fortytwoapps/requests.html')
+
+    def test_max_10_requests_returned(self):
+        """
+        Test to check if there are more than 10 request in db only 10 are returned
+        """
+        for _ in range(11):
+            self.client.get('/')
+
+        response = self.client.get(reverse('request'))
+        self.assertEqual(len(response.context_data['object_list']), 10)

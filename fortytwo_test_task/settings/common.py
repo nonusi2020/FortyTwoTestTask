@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.fortytwoapps.middleware.Requestlogger',
 ]
 
 ROOT_URLCONF = 'fortytwo_test_task.urls'
