@@ -77,14 +77,13 @@ class RequestViewTestCase(TestCase):
 
     def setUp(self):
         Request.objects.all().delete()
-        self.request_url = reverse('request')
 
     def test_request_view_render(self):
         """
         basic test for request view to return status 200 as response
         and uses correct template
         """
-        response = self.client.get('request/')
+        request_url = reverse('request')
+        response = self.client.get(request_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'fortytwoapps/requests.html')
-        self.assertEqual(request.view_name, 'requests')
