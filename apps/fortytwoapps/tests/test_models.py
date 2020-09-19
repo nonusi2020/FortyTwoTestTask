@@ -1,5 +1,6 @@
 from django.test import TestCase
 from apps.fortytwoapps.models import Contact, Request
+from datetime import datetime
 
 
 class ContactModelTestCase(TestCase):
@@ -40,7 +41,7 @@ class RequestsModelTestCase(TestCase):
 
     def setUp(self):
         Request.objects.create(
-            url='contact/',
+            url='request/',
             time=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             viewed=False
         )
@@ -50,5 +51,5 @@ class RequestsModelTestCase(TestCase):
         Test for Request model
         """
         self.request = Request.objects.first()
-        self.assertEqual(self.request.url, 'contact/')
+        self.assertEqual(self.request.url, 'request/')
         self.assertEqual(self.request.viewed, False)

@@ -1,6 +1,6 @@
 from django.test import TestCase, RequestFactory
-from apps.fortytwoapps.models import Contact
-from apps.fortytwoapps.views import ContactView, Request
+from apps.fortytwoapps.models import Contact, Request
+from apps.fortytwoapps.views import ContactView, RequestView
 from django.urls import reverse
 
 
@@ -77,14 +77,14 @@ class RequestViewTestCase(TestCase):
 
     def setUp(self):
         Request.objects.all().delete()
-        self.url = reverse('request')
+        self.request_url = reverse('request')
 
     def test_request_view_render(self):
         """
         basic test for request view to return status 200 as response
         and uses correct template
         """
-        response = self.client.get(self.url)
+        response = self.client.get('request/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'fortytwoapps/requests.html')
         self.assertEqual(request.view_name, 'requests')
