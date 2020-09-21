@@ -2,6 +2,7 @@ from django.test import TestCase, RequestFactory
 from apps.fortytwoapps.models import Contact, Request
 from apps.fortytwoapps.views import ContactView, RequestView
 from django.urls import reverse
+from json import loads
 
 
 class ContactViewTestCase(TestCase):
@@ -97,3 +98,25 @@ class RequestViewTestCase(TestCase):
 
         response = self.client.get(reverse('request'))
         self.assertEqual(len(response.context_data['object_list']), 10)
+
+    def test_requests_returned_by_ajax(self):
+        """
+        Test the AJAX requests made by browser
+        """
+        for _ in range(11):
+            self.client.get('/')
+        response = self.client.get('/request/?focus=true', HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        request_list = loads(response.content)['request_list']
+        self.assertEqual(len(request_list), 10)
+        self.assertTrue(all(r.viewed for r in Request.objects.all()))
+
+    def test_not_viewed_requests_by_ajax(self):
+        """
+        Test for checking correct notviewed values returned for ajax requests
+        """
+        for _ in range(21):
+            self.client.get('/')
+        response = self.client.get('/request/?focus=false', HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertFalse(all(r.viewed for r in Request.objects.all()))
+        new_requests = loads(response.content)['new_requests']
+        self.assertEqual(new_requests, 21)

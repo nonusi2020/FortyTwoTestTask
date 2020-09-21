@@ -9,10 +9,13 @@ def Requestlogger(get_response):
 
     def middleware(request):
         viewed = request.path == reverse('request')
-        Request.objects.create(
-            url=request.path,
-            viewed=viewed
-        )
+        # create request only if it is not ajax request.
+        if not request.is_ajax():
+            Request.objects.create(
+                url=request.path,
+                viewed=viewed
+            )
+
         return get_response(request)
 
     return middleware

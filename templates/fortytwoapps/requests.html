@@ -34,3 +34,10 @@
 <hr>
 <a class="btn" href="{% url 'contact_default' %}"> Home </a>
 {% endblock %}
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/getrequests.js' %}"></script>
+    <script>
+        Requests();
+    </script>
+{% endblock scripts %}
