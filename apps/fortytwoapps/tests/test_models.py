@@ -49,6 +49,6 @@ class RequestsModelTestCase(TestCase):
         """
         Test for Request model
         """
-        self.request = Request.objects.first()
-        self.assertEqual(self.request.url, 'request/')
-        self.assertEqual(self.request.viewed, False)
+        request = Request.objects.first()
+        self.assertEqual(request.url, 'request/')
+        self.assertEqual(request.viewed, False)
