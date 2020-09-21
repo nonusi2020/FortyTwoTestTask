@@ -12,7 +12,7 @@ def Requestlogger(get_response):
         # create request only if it is not ajax request.
         if not request.is_ajax():
             Request.objects.create(
-                url=request.path,
+                path=request.path,
                 viewed=viewed
             )
 

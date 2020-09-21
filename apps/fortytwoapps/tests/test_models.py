@@ -40,7 +40,7 @@ class RequestsModelTestCase(TestCase):
 
     def setUp(self):
         Request.objects.create(
-            url='request/',
+            path='request/',
             time=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             viewed=False
         )
@@ -50,5 +50,5 @@ class RequestsModelTestCase(TestCase):
         Test for Request model
         """
         request = Request.objects.first()
-        self.assertEqual(request.url, 'request/')
+        self.assertEqual(request.path, 'request/')
         self.assertEqual(request.viewed, False)

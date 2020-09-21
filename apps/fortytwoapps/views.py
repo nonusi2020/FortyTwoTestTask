@@ -1,7 +1,6 @@
 from django.views.generic import DetailView, ListView
 from apps.fortytwoapps.models import Contact, Request
-from django.http import HttpResponse
-from json import dumps
+from django.http import JsonResponse
 
 
 class ContactView(DetailView):
@@ -27,6 +26,6 @@ class RequestView(ListView):
                 Request.objects.filter(viewed=False).update(viewed=True)
 
             context = {'new_requests': Request.objects.filter(viewed=False).count(), 'request_list': list(requestlist)}
-            return HttpResponse(dumps(context), content_type="application/json")
+            return JsonResponse(context)
 
         return super(RequestView, self).get(request, *args, **kwargs)

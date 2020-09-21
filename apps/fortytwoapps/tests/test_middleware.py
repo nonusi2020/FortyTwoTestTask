@@ -28,5 +28,5 @@ class TestMiddleWare(TestCase):
         """
         self.client.get('/')
         self.assertEqual(Request.objects.all().count(), 1)
-        self.assertEqual(Request.objects.first().url, '/')
+        self.assertEqual(Request.objects.first().path, '/')
         self.assertEqual(Request.objects.first().viewed, False)

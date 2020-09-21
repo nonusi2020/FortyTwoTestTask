@@ -1,6 +1,6 @@
 from django.test import TestCase, RequestFactory
 from apps.fortytwoapps.models import Contact, Request
-from apps.fortytwoapps.views import ContactView, RequestView
+from apps.fortytwoapps.views import ContactView
 from django.urls import reverse
 from json import loads
 

@@ -1,23 +1,20 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
 <div class="container">
-
     <div class="row">
-        <div class="col-md-6"><h2>42 Coffee Cups Test Assignment</h2></div>
+        <div class="col-md-6">
+            <h2>42 Coffee Cups Test Assignment</h2>
+        </div>
     </div>
-
     <div class="col-md-12" id="requests-column">
         <table class="table" id="requests-table">
             <thead>
                 <tr>
-                    <th>URL</th>
+                    <th>PATH</th>
                     <th>DATE AND TIME</th>
                 </tr>
             </thead>
-
             <tbody>
                 {% for request in object_list %}
                 <tr>
@@ -25,19 +22,17 @@
                     <td>{{ request.time | date:"M d Y H:i:s" }} </td>
                 </tr>
                 {% endfor %}
-            </tbody>        
+            </tbody>
         </table>
     </div>
-
 </div>
-
 <hr>
 <a class="btn" href="{% url 'contact_default' %}"> Home </a>
 {% endblock %}
 {% block scripts %}
-    {{ block.super }}
-    <script src="{% static 'js/getrequests.js' %}"></script>
-    <script>
-        Requests();
-    </script>
+{{ block.super }}
+<script src="{% static 'js/getrequests.js' %}"></script>
+<script>
+Requests();
+</script>
 {% endblock scripts %}
