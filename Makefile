@@ -9,7 +9,7 @@ BIND_TO=localhost
 RUNSERVER_PORT=8000
 SETTINGS=fortytwo_test_task.settings
 TEST_SETTINGS=fortytwo_test_task.settings.test
-TEST_APP?=apps
+TEST_APP?=apps/fortytwoapps/tests
 flake8=flake8
 
 PYTHONPATH=$(CURDIR)

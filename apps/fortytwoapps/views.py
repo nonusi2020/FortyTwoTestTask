@@ -18,8 +18,6 @@ class RequestView(ListView):
 
     def get(self, request, *args, **kwargs):
         requestlist = Request.objects.values()[:10]
-        for request in requestlist:
-            request['time'] = request['time'].strftime('%b %d %Y %H:%M:%S')
         if self.request.is_ajax():
             # if user is view page and getting updated by ajax set all requests to be viewed
             if self.request.GET.get('focus') == 'true':
