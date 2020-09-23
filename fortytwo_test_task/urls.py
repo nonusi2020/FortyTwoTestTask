@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.fortytwoapps.views import ContactView
+from apps.fortytwoapps.views import ContactView, RequestView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ContactView.as_view(), name='contact_default'),
+    path('request/', RequestView.as_view(), name='request'),
 ]

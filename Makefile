@@ -10,7 +10,6 @@ RUNSERVER_PORT=8000
 SETTINGS=fortytwo_test_task.settings
 TEST_SETTINGS=fortytwo_test_task.settings.test
 TEST_APP?=apps
-flake8=flake8
 
 PYTHONPATH=$(CURDIR)
 
