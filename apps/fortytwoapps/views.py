@@ -1,5 +1,6 @@
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, UpdateView
 from apps.fortytwoapps.models import Contact, Request
+from apps.fortytwoapps.forms import UpdateContactForm
 from django.http import JsonResponse
 
 
@@ -27,3 +28,24 @@ class RequestView(ListView):
             return JsonResponse(context)
 
         return super(RequestView, self).get(request, *args, **kwargs)
+
+
+class UpdateContact(UpdateView):
+    model = Contact
+    template_name = "fortytwoapps/update_contact.html"
+    form_class = UpdateContactForm
+
+    def post(self, *args, **kwargs):
+        super().post(self.request, *args, **kwargs)
+        print(self.object)
+        if self.request.is_ajax and self.request.method == "POST":
+            form = self.form_class(self.request.POST)
+            if form.is_valid():
+                instance = form.save()
+                print(instance)
+                data = {'pk': "", }
+                return JsonResponse(data)
+            else:
+                return JsonResponse({"error": form.errors}, status=400)
+
+        return JsonResponse({"error": ""}, status=400)
