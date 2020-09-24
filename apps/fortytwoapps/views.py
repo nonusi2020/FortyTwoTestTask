@@ -35,17 +35,9 @@ class UpdateContact(UpdateView):
     template_name = "fortytwoapps/update_contact.html"
     form_class = UpdateContactForm
 
-    def post(self, *args, **kwargs):
-        super().post(self.request, *args, **kwargs)
-        print(self.object)
-        if self.request.is_ajax and self.request.method == "POST":
-            form = self.form_class(self.request.POST)
-            if form.is_valid():
-                instance = form.save()
-                print(instance)
-                data = {'pk': "", }
-                return JsonResponse(data)
-            else:
-                return JsonResponse({"error": form.errors}, status=400)
-
-        return JsonResponse({"error": ""}, status=400)
+    def form_invalid(self, form):
+        response = super(AjaxableResponseMixin, self).form_invalid(form)
+        if self.request.is_ajax():
+            return JsonResponse(form.errors, status=400)
+        else:
+            return response
