@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
         call_command("loaddata", "initial_data.json")
 
     dependencies = [
-        ('fortytwoapps', '0001_initial'),
+        ('fortytwoapps', '0005_contact_photo'),
     ]
 
     operations = [

@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -118,7 +119,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # Additional locations of static files
@@ -130,3 +131,7 @@ STATICFILES_DIRS = (
 )
 
 FIXTURE_DIRS = [os.path.join(BASE_DIR, "apps/fortytwoapps/fixtures/")]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+MEDIA_URL = '/uploads/'

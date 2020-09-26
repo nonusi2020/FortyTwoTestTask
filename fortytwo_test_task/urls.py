@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from apps.fortytwoapps.views import ContactView, RequestView, UpdateContact
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ContactView.as_view(), name='contact_default'),
     path('request/', RequestView.as_view(), name='request'),
     path('updatecontact/<pk>', UpdateContact.as_view(), name='update_contact'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(
+    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+)

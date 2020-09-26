@@ -120,3 +120,27 @@ class RequestViewTestCase(TestCase):
         self.assertFalse(all(r.viewed for r in Request.objects.all()))
         new_requests = loads(response.content)['new_requests']
         self.assertEqual(new_requests, 21)
+
+
+class TestUpdateContactView(TestCase):
+
+    def test_update_contact_view_render(self):
+        """
+        Test to check if view is retrning
+        correct template
+        """
+        url = reverse('update_contact', kwargs={'pk': 1})
+        self.client.login(username='admin', password='admin')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'fortytwoapps/update_contact.html')
+
+    def test_update_contact_view_unauthorised(self):
+        """
+        Test if unauthorised request is redirected to login page
+        """
+        self.client.logout()
+        url = reverse('update_contact', kwargs={'pk': 1})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+        self.assertIn('/accounts/login/', self.response.url)

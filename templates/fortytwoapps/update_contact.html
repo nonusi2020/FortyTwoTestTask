@@ -3,142 +3,129 @@
 {% block title %}
 Update Contact
 {% endblock title %}
-
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-6"><h2>42 Coffee Cups Test Assignment</h2></div>
+        <div class="col-md-6">
+            <h2>42 Coffee Cups Test Assignment</h2>
+        </div>
     </div>
     <div class="row">
-        <div class="col-md-6 text-center"><h4>Update Contact</h4></div>
-    </div>
-
-
-<form id="update_contact" class="form-horizontal" data-toggle="validator" method="post" enctype="multipart/form-data">
- {% csrf_token %}
-
-<div class="form-group">
-<div class="alert" id="result1">
-</div>
-</div>
-
- <div class="row" >
-    <div class="col-md-6" >
-         <div class="row">
-        <div class="form-group has-feedback">
-            <label class="control-label col-md-4" for="id_name">Name:</label>
-            <div class="col-md-8">{{ form.name }}
-            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-            <div class="help-block with-errors"> </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="row">
-        <div class="form-group has-feedback">
-            <label class="control-label col-md-4" for="id_lastname">LastName:</label>
-            <div class="col-md-8" requir>{{form.lastname}}
-                <div class="help-block with-errors"> </div>
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="form-group has-feedback">
-            <label class="control-label col-md-4" for="id_dateofbirth">DateOfBirth:</label>
-            <div class="col-md-8">{{form.dateofbirth}}
-            <div class="help-block with-errors"> </div>
-            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-        </div>
-        </div>
-        </div>
-
-        <div class="row">
-            <div class="form-group has-feedback">
-                <label class="control-label col-md-4" for="id_bio">Bio:</label>
-                <div class="col-md-8">{{ form.bio }}
-                <div class="help-block with-errors"> </div>
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-            </div>
-            </div>
+        <div class="col-md-6 text-center">
+            <h4>Update Contact</h4>
         </div>
     </div>
-
-
-    <div class="col-md-6">
+    <form id="update_contact" class="form-horizontal" data-toggle="validator" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="alert" id="result1">
+            </div>
+        </div>
         <div class="row">
-            <div class="form-group has-feedback">
-                <label class="control-label col-md-4" for="id_email">Email:</label>
-                <div class="col-md-8">{{form.email}}
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-md-4" for="id_name">Name:</label>
+                        <div class="col-md-8">{{form.name}}
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-md-4" for="id_lastname">LastName:</label>
+                        <div class="col-md-8" requir>{{form.lastname}}
+                            <div class="help-block with-errors"> </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-md-4" for="id_dateofbirth">DateOfBirth:</label>
+                        <div class="col-md-8">{{form.dateofbirth}}
+                            <div class="help-block with-errors"> </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-md-4" for="id_bio">Bio:</label>
+                        <div class="col-md-8">{{ form.bio }}
+                            <div class="help-block with-errors"> </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-md-4" for="id_email">Email:</label>
+                        <div class="col-md-8">{{form.email}}
+                            <div class="help-block with-errors"> </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-md-4" for="id_jabber">Jabber:</label>
+                        <div class="col-md-8">{{form.jabber}}
+                            <div class="help-block with-errors"> </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-md-4" for="id_skype">Skype:</label>
+                        <div class="col-md-8">{{form.skype}}
+                            <div class="help-block with-errors"> </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-md-4" for="id_othercontacts">OtherContacts:</label>
+                        <div class="col-md-8">{{form.othercontacts}}
+                            <div class="help-block with-errors"> </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group has-feedback col-md-6">
+                <lable class="contorl-lable col-md-4 text-right" for="id_photo">Photo:</lable>
+                <div class="col-md-8 ">
+                    <input id="id_photo" name="photo" type="file" />
+                    {% if form.photo.value %}
+                    <input id="id_photo-clear" name="photo-clear" type="checkbox" />
+                    <label for="id_photo-clear">Clear</label><br>
+                    <img id="photo_url" class="picture col-md-8" src="{{ MEDIA_URL }}{{ form.photo.value }}" />
+                    {% else %}
+                    <img id="photo_url" src="#" height="200" width="200" />
+                    {% endif %}
+                </div>
                 <div class="help-block with-errors"> </div>
                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
             </div>
         </div>
-        </div>
-
-        <div class="row">
-            <div class="form-group has-feedback">
-                <label class="control-label col-md-4" for="id_jabber">Jabber:</label>
-                <div class="col-md-8">{{form.jabber}}
-                <div class="help-block with-errors"> </div>
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="form-group">
+            <div class="alert" id="result">
             </div>
         </div>
-        </div>
-            
-        <div class="row">
-            <div class="form-group has-feedback">
-                <label class="control-label col-md-4" for="id_skype">Skype:</label>
-                <div class="col-md-8">{{form.skype}}
-                <div class="help-block with-errors"> </div>
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-            </div>
-        </div>
-        </div>
-        
-        <div class="row">
-            <div class="form-group has-feedback">
-                <label class="control-label col-md-4" for="id_othercontacts">OtherContacts:</label>
-                <div class="col-md-8">{{form.othercontacts}}
-                <div class="help-block with-errors"> </div>
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-            </div>
-        </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="form-group has-feedback col-md-6">
-    <lable class="contorl-lable col-md-4 text-right" for="id_photo">Photo:</lable>
-    <div class="col-md-8 ">
-        <input id="id_photo" name="photo" type="file" />
-    {% if form.photo.value %}
-        <input id="id_photo-clear" name="photo-clear" type="checkbox" />
-        <label for="id_photo-clear">Clear</label><br>
-        <img id="photo_url" class="picture col-md-8" src="{{ MEDIA_URL }}{{ form.photo.value }}" />
-    {% else %}
-        <img id="photo_url" src="#" height="200" width="200"/>          
-    {% endif %}  
-    </div>
-    <div class="help-block with-errors"> </div>
-    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-    </div>
-</div>
-
-<div class="form-group">
-<div class="alert" id="result">
-</div>
-</div>
-<a class="btn btn-default" href="{% url 'contact_default' %}">Home</a>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form>
+        <a class="btn btn-default" href="{% url 'contact_default' %}">Home</a>
+        <input class="btn btn-default" type="submit" value="Submit" />
+    </form>
 </div>
 {% endblock %}
-
 {% block scripts %}
-    {{ block.super }}
-    <script src="{% static 'js/update_contact.js' %}"></script>
-
+{{ block.super }}
+<script src="{% static 'js/update_contact.js' %}"></script>
 {% endblock scripts %}
