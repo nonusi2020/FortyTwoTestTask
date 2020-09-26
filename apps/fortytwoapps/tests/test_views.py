@@ -143,4 +143,4 @@ class TestUpdateContactView(TestCase):
         url = reverse('update_contact', kwargs={'pk': 1})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
-        self.assertIn('/accounts/login/', self.response.url)
+        self.assertIn('/accounts/login/', response.url)

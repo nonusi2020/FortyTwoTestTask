@@ -2,6 +2,7 @@ from django.views.generic import DetailView, ListView, UpdateView
 from apps.fortytwoapps.models import Contact, Request
 from apps.fortytwoapps.forms import UpdateContactForm
 from django.http import JsonResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class ContactView(DetailView):
@@ -30,7 +31,7 @@ class RequestView(ListView):
         return super(RequestView, self).get(request, *args, **kwargs)
 
 
-class UpdateContact(UpdateView):
+class UpdateContact(LoginRequiredMixin, UpdateView):
     model = Contact
     template_name = "fortytwoapps/update_contact.html"
     form_class = UpdateContactForm
