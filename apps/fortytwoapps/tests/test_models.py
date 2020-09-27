@@ -1,5 +1,5 @@
 from django.test import TestCase
-from apps.fortytwoapps.models import Contact, Request
+from apps.fortytwoapps.models import Contact, Request, ModelsLog
 from datetime import datetime
 
 
@@ -52,3 +52,19 @@ class RequestsModelTestCase(TestCase):
         request = Request.objects.first()
         self.assertEqual(request.path, 'request/')
         self.assertEqual(request.viewed, False)
+
+
+class ModelsLogModelTestCase(TestCase):
+
+    def test_modelslog_fields_in_model(self):
+        """
+        Test all fields are present in the model
+        """
+        fields = {field.name: field.get_internal_type() for field in ModelsLog._meta.fields}
+        self.assertDictEqual(fields, {
+            'id': u'AutoField',
+            'appname': u'CharField',
+            'objectname': 'CharField',
+            'action': u'CharField',
+            'datetime': u'DateTimeField',
+        })
