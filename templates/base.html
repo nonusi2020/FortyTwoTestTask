@@ -1,24 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>{% block title %}{% endblock title %}42 Coffee Cups Test Assignments</title>
 
-        <meta http-equiv="X-UA-Compatible" content="chrome=IE7" />
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock title %}42 Coffee Cups Test Assignments</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=IE7" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% block extra_head %}{% endblock extra_head %}
+</head>
 
-        <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+    {% block content %}{% endblock content %}
+</body>
+{% block scripts %}{% endblock scripts %}
 
-        <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-        {% block extra_head %}{% endblock extra_head %}
-
-    </head>
-    <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
-        {% block content %}{% endblock content %}
-    </body>
-    {% block scripts %}{% endblock scripts %}
 </html>
