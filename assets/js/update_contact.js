@@ -5,8 +5,8 @@ $(function() {
         beforeSubmit: function() {
             $("update_contact :input").prop("disabled", true);
         },
-        success: function(data) { 
-            $("#result").addClass("alert-success").text("Contact "+ data.name +"  updated successfully");
+        success: function(data) {
+            $("#result").addClass("alert-success").text("Contact " + data.name + "  updated successfully");
             $("#id_photo").val("");
             $("#id_photo-clear").prop("checked", false);
         },
@@ -40,6 +40,7 @@ $(function() {
         resetErrors();
         $(this).ajaxSubmit(ajaxOptions)
     });
+
     options = {
         custom: {
             dateofbirth: function($el) {
@@ -57,7 +58,6 @@ $(function() {
             }
         }
     };
-
 
     $("form").validator(options);
 
@@ -80,7 +80,6 @@ $(function() {
                 picture.css("max-width", 200);
                 picture.css("max-height", 200);
                 $("#photo_url").attr("src", e.target.result);
-
             };
             reader.readAsDataURL(input.files[0]);
         }

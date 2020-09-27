@@ -130,8 +130,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
 
-FIXTURE_DIRS = [os.path.join(BASE_DIR, "apps/fortytwoapps/fixtures/")]
+FIXTURE_DIRS = [os.path.join(BASE_DIR, 'apps/fortytwoapps/fixtures/')]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 MEDIA_URL = '/uploads/'
+
+LOGIN_REDIRECT_URL = '/'
