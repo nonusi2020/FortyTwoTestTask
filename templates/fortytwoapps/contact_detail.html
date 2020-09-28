@@ -10,17 +10,21 @@
     {% if contact %}
     <div class="main row">
         <div class="column">
-            <div class="my"><span id="name"><strong>Name: </strong></span>{{contact.name}}</div>
-            <div class="my"><span id="lastname"><strong>LastName: </strong></span>{{contact.lastname}}</div>
-            <div class="my"><span id="dateofbirth"><strong>DateofBirth: </strong></span>{{contact.dateofbirth}}</div>
-            <div class="my"> <span id="bio"><strong>Bio: </strong></span>{{contact.bio|wordwrap:50}}</div>
+            <div class="my"><span id="name"><strong>Name: </strong></span>{{ contact.name }}</div>
+            <div class="my"><span id="lastname"><strong>LastName: </strong></span>{{ contact.lastname }}</div>
+            <div class="my"><span id="dateofbirth"><strong>DateofBirth: </strong></span>
+                {{ contact.dateofbirth }}
+            </div>
+            <div class="my"> <span id="bio"><strong>Bio: </strong></span>{{ contact.bio|wordwrap:50 }}</div>
         </div>
         <div class="column">
             <div class="my"><b>Contacts</b></div>
-            <div class="my"><span id="email"><strong>Email: </strong></span>{{contact.email}}</div>
-            <div class="my"><span id="jabber"><strong>Jabber: </strong></span>{{contact.jabber}}</div>
-            <div class="my"><span id="skype"><strong>Skype: </strong></span>{{contact.skype}}</div>
-            <div class="my"><span id="othercontacts"><strong>OtherContacts: </strong></span>{{contact.othercontacts|wordwrap:50}}</div>
+            <div class="my"><span id="email"><strong>Email: </strong></span>{{ contact.email }}</div>
+            <div class="my"><span id="jabber"><strong>Jabber: </strong></span>{{ contact.jabber }}</div>
+            <div class="my"><span id="skype"><strong>Skype: </strong></span>{{ contact.skype }}</div>
+            <div class="my"><span id="othercontacts"><strong>OtherContacts: </strong></span>
+                {{ contact.othercontacts|wordwrap:50 }}
+            </div>
         </div>
     </div>
     <div class="row">
@@ -33,7 +37,7 @@
         </div>
     </div>
 </div>
-{%else %}
+{% else %}
 <p>Contact details not in db.</p>
 {% endif %}
 <hr>
