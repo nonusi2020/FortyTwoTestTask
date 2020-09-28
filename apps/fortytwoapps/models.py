@@ -23,3 +23,13 @@ class Request(models.Model):
 
     class Meta:
         ordering = ['-id']
+
+
+class ModelsLog(models.Model):
+    """
+    ObjectLog Data Model
+    """
+    appname = models.CharField(max_length=100)
+    objectname = models.CharField(max_length=100)
+    action = models.CharField(max_length=100)
+    datetime = models.DateTimeField(auto_now_add=True)

@@ -5,14 +5,16 @@ from apps.fortytwoapps.models import Contact, ModelsLog
 class TestSignals(TestCase):
 
     def setUp(self):
-        Contact.objects.create(name='test',
-                               lastname='user',
-                               dateofbirth='1983-01-01',
-                               bio='none',
-                               email='nonu.si2020@test.com',
-                               jabber='test@42cc.co',
-                               skype='test.test',
-                               othercontacts='no')
+        Contact.objects.create(
+            name='test',
+            lastname='user',
+            dateofbirth='1983-01-01',
+            bio='none',
+            email='nonu.si2020@test.com',
+            jabber='test@42cc.co',
+            skype='test.test',
+            othercontacts='no'
+        )
 
     def test_create_post_save_signal(self):
         """
