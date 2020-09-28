@@ -14,9 +14,7 @@ def validate_dob(value):
 
 class UpdateContactForm(forms.ModelForm):
 
-    class Meta:
-        model = Contact
-        fields = '__all__'
+
     name = forms.CharField(widget=forms.widgets.TextInput(
         attrs={'class': 'form-control', 'required': True, 'data-required-error': 'Name is required.'}
     )
@@ -50,3 +48,7 @@ class UpdateContactForm(forms.ModelForm):
         attrs={'class': 'form-control'}
     ), required=False
     )
+
+    class Meta:
+        model = Contact
+        fields = '__all__'

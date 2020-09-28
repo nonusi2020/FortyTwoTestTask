@@ -1,10 +1,6 @@
 from django.test import TestCase
 from apps.fortytwoapps.models import Contact, Request
 from datetime import datetime
-from django.core.files import File
-from django.conf import settings
-import os
-import glob
 
 
 class ContactModelTestCase(TestCase):
