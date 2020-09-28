@@ -10,23 +10,23 @@
     {% if contact %}
     <div class="main row">
         <div class="column">
-            <div class="my"><span id="Name"><strong>Name: </strong></span>{{contact.name}}</div>
-            <div class="my"><span id="LastName"><strong>LastName: </strong></span>{{contact.lastname}}</div>
-            <div class="my"><span id="DateOfBirth"><strong>DateofBirth: </strong></span>{{contact.dateofbirth}}</div>
-            <div class="my"> <span id="Bio"><strong>Bio: </strong></span>{{ contact.bio|wordwrap:50 }}</div>
+            <div class="my"><span id="name"><strong>Name: </strong></span>{{contact.name}}</div>
+            <div class="my"><span id="lastname"><strong>LastName: </strong></span>{{contact.lastname}}</div>
+            <div class="my"><span id="dateofbirth"><strong>DateofBirth: </strong></span>{{contact.dateofbirth}}</div>
+            <div class="my"> <span id="bio"><strong>Bio: </strong></span>{{contact.bio|wordwrap:50}}</div>
         </div>
         <div class="column">
             <div class="my"><b>Contacts</b></div>
-            <div class="my"><span id="Email"><strong>Email: </strong></span>{{contact.email}}</div>
-            <div class="my"><span id="Jabber"><strong>Jabber: </strong></span>{{contact.jabber}}</div>
-            <div class="my"><span id="Skype"><strong>Skype: </strong></span>{{contact.skype}}</div>
-            <div class="my"><span id="OtherContacts"><strong>OtherContacts: </strong></span>{{contact.othercontacts|wordwrap:50}}</div>
+            <div class="my"><span id="email"><strong>Email: </strong></span>{{contact.email}}</div>
+            <div class="my"><span id="jabber"><strong>Jabber: </strong></span>{{contact.jabber}}</div>
+            <div class="my"><span id="skype"><strong>Skype: </strong></span>{{contact.skype}}</div>
+            <div class="my"><span id="othercontacts"><strong>OtherContacts: </strong></span>{{contact.othercontacts|wordwrap:50}}</div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6 text-center">
             {% if contact.photo %}
-            <img src="{{ contact.photo.url }}" height="200" width="200" />
+            <img src="{{contact.photo.url}}" height="200" width="200" />
             {% else %}
             <img src="#" height="200" width="200" />
             {% endif %}

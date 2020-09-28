@@ -45,8 +45,8 @@ $(function() {
         custom: {
             dateofbirth: function($el) {
                 console.debug("inside dob validation" + $el.val());
-                var isDate = !!Date.parse($el.val()),
-                    curDate = new Date(new Date().setHours(0, 0, 0, 0));
+                var isDate = !!Date.parse($el.val());
+                var curDate = new Date(new Date().setHours(0, 0, 0, 0));
                 var inputValue = new Date($el.val());
                 var result = inputValue > curDate;
                 if (!isDate) {

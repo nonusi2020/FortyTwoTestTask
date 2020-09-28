@@ -12,14 +12,14 @@
             <thead>
                 <tr>
                     <th>PATH</th>
-                    <th>DATE AND TIME</th>
+                    <th>TIMESTAMP</th>
                 </tr>
             </thead>
             <tbody>
                 {% for request in object_list %}
                 <tr>
-                    <td>{{ request.url }} </td>
-                    <td>{{ request.time | date:"M d Y H:i:s" }} </td>
+                    <td>{{request.url}} </td>
+                    <td>{{ request.timestamp | date:"M d Y H:i:s" }} </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -33,6 +33,6 @@
 {{ block.super }}
 <script src="{% static 'js/getrequests.js' %}"></script>
 <script>
-Requests();
+getRequests();
 </script>
 {% endblock scripts %}

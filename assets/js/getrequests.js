@@ -4,7 +4,7 @@ var newRequests = 0;
 
 window.addEventListener("focus", updatetitle);
 
-function Requests() {
+function getRequests() {
     window.setInterval(function() {
         getrequest();
     }, interval);
@@ -12,7 +12,7 @@ function Requests() {
 }
 
 function getrequest() {
-    url = "/request/?focus=" + document.hasFocus();
+    url = '/request/?focus=' + document.hasFocus();
     $.get(url, updateRequests);
 }
 
@@ -23,7 +23,7 @@ function updateRequests(response) {
     var finaltemplate = "";
     //update request page.
     requestList.forEach(function(request) {
-        template = "<tr><td>" + request.path + "</td><td>" + request.time + "</td></tr>";
+        template = "<tr><td>" + request.path + "</td><td>" + request.timestamp + "</td></tr>";
         finaltemplate += template;
     });
     $("tbody").html(finaltemplate);
@@ -38,5 +38,4 @@ function updatetitle() {
         var n = newRequests > 0 ? "(" + newRequests + ")" : "";
         $("title").text(n + pagetitle);
     }
-
 }

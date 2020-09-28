@@ -32,7 +32,7 @@ class Request(models.Model):
     Request datamodel
     """
     path = models.CharField(max_length=100)
-    time = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     viewed = models.BooleanField(default=False)
 
     class Meta:

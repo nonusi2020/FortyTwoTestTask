@@ -41,7 +41,7 @@ class RequestsModelTestCase(TestCase):
     def setUp(self):
         Request.objects.create(
             path='request/',
-            time=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            timestamp=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             viewed=False
         )
 
