@@ -43,6 +43,7 @@ class TestSignals(TestCase):
         """
         Contact.objects.last().delete()
         modelslog = ModelsLog.objects.last()
+        print(modelslog.appname, modelslog.objectname, modelslog.action)
         self.assertEqual(modelslog.appname, 'fortytwoapps')
         self.assertEqual(modelslog.objectname, 'Contact')
         self.assertEqual(modelslog.action, 'deleted')
