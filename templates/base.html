@@ -12,6 +12,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
         <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         {% block extra_head %}{% endblock extra_head %}
 
@@ -19,4 +20,5 @@
     <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
         {% block content %}{% endblock content %}
     </body>
+    {% block scripts %}{% endblock scripts %}
 </html>

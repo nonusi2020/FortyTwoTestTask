@@ -1,7 +1,8 @@
 from django.test import TestCase, RequestFactory
-from apps.fortytwoapps.models import Contact
+from apps.fortytwoapps.models import Contact, Request
 from apps.fortytwoapps.views import ContactView
 from django.urls import reverse
+from json import loads
 
 
 class ContactViewTestCase(TestCase):
@@ -37,7 +38,8 @@ class ContactViewTestCase(TestCase):
         test to check contact view returns contact as context.
         """
         response = self.client.get(self.url)
-        fields = ('name', 'lastname', 'bio', 'email', 'jabber', 'skype', 'othercontacts')
+        fields = ('name', 'lastname', 'bio', 'email',
+                  'jabber', 'skype', 'othercontacts')
         for field in fields:
             self.assertContains(response, getattr(self.contact, field))
 
@@ -70,3 +72,51 @@ class ContactViewTestCase(TestCase):
         request = factory.get(self.url)
         response = ContactView.as_view()(request, pk=1)
         self.assertEqual(response.status_code, 200)
+
+
+class RequestViewTestCase(TestCase):
+
+    def setUp(self):
+        Request.objects.all().delete()
+
+    def test_request_view_render(self):
+        """
+        basic test for request view to return status 200 as response
+        and uses correct template
+        """
+        request_url = reverse('request')
+        response = self.client.get(request_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'fortytwoapps/requests.html')
+
+    def test_max_10_requests_returned(self):
+        """
+        Test to check if there are more than 10 request in db only 10 are returned
+        """
+        for _ in range(11):
+            self.client.get('/')
+
+        response = self.client.get(reverse('request'))
+        self.assertEqual(len(response.context_data['object_list']), 10)
+
+    def test_requests_returned_by_ajax(self):
+        """
+        Test the AJAX requests made by browser
+        """
+        for _ in range(11):
+            self.client.get('/')
+        response = self.client.get('/request/?focus=true', HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        request_list = loads(response.content)['request_list']
+        self.assertEqual(len(request_list), 10)
+        self.assertTrue(all(r.viewed for r in Request.objects.all()))
+
+    def test_not_viewed_requests_by_ajax(self):
+        """
+        Test for checking correct notviewed values returned for ajax requests
+        """
+        for _ in range(21):
+            self.client.get('/')
+        response = self.client.get('/request/?focus=false', HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertFalse(all(r.viewed for r in Request.objects.all()))
+        new_requests = loads(response.content)['new_requests']
+        self.assertEqual(new_requests, 21)

@@ -11,3 +11,15 @@ class Contact(models.Model):
     jabber = models.CharField(max_length=100, blank=True, null=True)
     skype = models.CharField(max_length=100, blank=True, null=True)
     othercontacts = models.CharField(max_length=500, blank=True, null=True)
+
+
+class Request(models.Model):
+    """
+    Request datamodel
+    """
+    path = models.CharField(max_length=100)
+    time = models.DateTimeField(auto_now_add=True)
+    viewed = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-id']
